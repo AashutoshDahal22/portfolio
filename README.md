@@ -50,4 +50,4 @@ This portfolio is built to **present, interact, and even entertain**, while givi
 ---
 
 ## Wanna give it a try?
-https://aashutoshdl.github.io/portfolio/
+https://aashutoshdahal22.github.io/portfolio/
