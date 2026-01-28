@@ -55,7 +55,7 @@ const Projects = () => {
     },
     {
       title: "Tution Tracker",
-      description: "Tution tracker made with Next.js and Prisma ORM",
+      description: "Tuition tracker made with Next.js and Prisma ORM",
       image: "/portfolio/techno.png",
       link: "https://github.com/AashutoshDahal22/tution-tracker",
       id: 9,
@@ -70,21 +70,21 @@ const Projects = () => {
     },
     {
       title: "Clip-stack",
-      description: "custom clipboard using python",
+      description: "Custom clipboard using Python",
       image: "/portfolio/techno.png",
       link: "https://github.com/AashutoshDahal22/clipstack",
       id: 11,
     },
     {
       title: "Sudoku Solver",
-      description: "sudoku solver using python which solves 9x9 sudoku",
+      description: "Sudoku solver using Python (9×9)",
       image: "/portfolio/techno.png",
       link: "https://github.com/AashutoshDahal22/Sudoku-Solver",
       id: 12,
     },
     {
       title: "VLight-IT",
-      description: "e-commerce project for v-light IT shop",
+      description: "E-commerce project for V-Light IT shop",
       image: "/portfolio/techno.png",
       link: "https://github.com/AashutoshDahal22/V-Light-IT",
       id: 13,
@@ -107,11 +107,12 @@ const Projects = () => {
         {projectData.map((project, index) => (
           <motion.div
             key={project.id}
-            className="group rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-lg transition-all"
+            className="group rounded-xl bg-gray-200/60 border border-gray-300/50 shadow-sm hover:shadow-lg transition-all"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
+            whileHover={{ y: -4 }}
           >
             <div className="h-56 w-full overflow-hidden rounded-t-xl">
               <img
@@ -122,7 +123,7 @@ const Projects = () => {
             </div>
 
             <div className="p-6 flex flex-col">
-              <h3 className="text-xl font-medium text-gray-900 mb-2">
+              <h3 className="text-xl font-medium text-gray-800 mb-2">
                 {project.title}
               </h3>
 
@@ -132,7 +133,9 @@ const Projects = () => {
 
               <a
                 href={project.link || "#"}
-                className="text-sm font-medium text-gray-900 underline underline-offset-4 hover:text-gray-600 transition"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-gray-700 underline underline-offset-4 hover:text-gray-900 transition"
               >
                 View project →
               </a>
