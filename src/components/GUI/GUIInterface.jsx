@@ -85,11 +85,11 @@ const GUIInterface = () => {
   useEffect(() => {
     document.documentElement.style.setProperty(
       "--foreground-color",
-      foregroundColor
+      foregroundColor,
     );
     document.documentElement.style.setProperty(
       "--background-color",
-      backgroundColor
+      backgroundColor,
     );
   }, [foregroundColor, backgroundColor]);
 
@@ -235,10 +235,9 @@ const GUIInterface = () => {
                 className="text-lg lg:text-xl xl:text-2xl font-light leading-relaxed"
                 style={{ color: foregroundColor, opacity: 0.8 }}
               >
-                Just another CS geek who likes working on projects. Minimalist
-                UI because I am colorblind and tend to mess up colors while
-                designing anything from scratch. I like working on backend APIs
-                and systems.
+                Just another CS geek from small country in the Himalayas(NEPAL)
+                who likes working on projects. I enjoy working with backend
+                systems and also develop UI (minimalist)
               </p>
             </div>
 
