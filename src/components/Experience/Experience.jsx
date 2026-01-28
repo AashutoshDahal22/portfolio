@@ -8,60 +8,56 @@ const Experience = () => {
       role: "Frontend & Spatial Computing Intern",
       duration: "May 2024 – December 2025",
       description: (
-        <ul className="list-disc list-inside space-y-1 text-white/70">
+        <ul className="list-disc list-inside space-y-2 text-gray-600 text-sm">
           <li>
             Developed an interactive riddle game for events at Kavya College,
-            enhancing engagement and logical thinking among participants.
+            improving engagement and logical thinking.
           </li>
           <li>
             Organized large-scale events such as Herald PUBG and Islington
-            Mario, improving event coordination and leadership skills.
+            Mario, strengthening leadership and coordination skills.
           </li>
           <li>
-            Completed a 3D web development course and supported initial
-            development of SMaRC’s 3D website, later taking over the project.
+            Completed 3D web development training and took ownership of SMaRC’s
+            3D website development.
           </li>
           <li>
-            Showcased innovative projects at Futurama events hosted at Islington
-            College, Herald College, and Apex College, increasing visibility and
-            outreach.
+            Showcased innovative projects at Futurama events hosted by multiple
+            colleges, increasing visibility and outreach.
           </li>
           <li>
-            Integrated AR and 3D technologies to design dynamic web applications
-            for brochures and leaflets at Islington College Kathmandu.
+            Designed AR and 3D web experiences for brochures and promotional
+            materials at Islington College Kathmandu.
           </li>
           <li>
-            Created AR experiences using Google Model Viewer, Three.js, A-Frame,
-            and MindAR, expanding proficiency in WebAR tools and development.
+            Built WebAR experiences using Google Model Viewer, Three.js,
+            A-Frame, and MindAR.
           </li>
           <li>
-            Presented Final Year Project and AR project at BIC Experience event,
-            including training volunteers on project use.
+            Presented Final Year Project and AR demos at BIC Experience events
+            and trained volunteers.
           </li>
           <li>
-            Led development of a Gamified Cybersecurity Learning experience
-            using React Three Fiber, managing the team as acting team lead.
+            Led development of a gamified cybersecurity learning platform using
+            React Three Fiber as acting team lead.
           </li>
           <li>
-            Delivered game development classes for the Skill Enrichment Program,
-            fostering foundational skills among participants.
+            Delivered game development classes for the Skill Enrichment Program.
           </li>
           <li>
             Conducted web development workshops for the Global Professional
-            Pathway Course, strengthening digital literacy for aspiring
-            developers.
+            Pathway Course.
           </li>
           <li>
-            Researched optimization techniques for augmented reality
-            applications, improving performance and reducing latency across
-            devices.
+            Researched AR optimization techniques to improve performance and
+            reduce latency.
           </li>
           <li>
-            Worked on content development for robotics kits for grades 4-9.
+            Contributed to content development for robotics kits (Grades 4–9).
           </li>
           <li>
-            Revamped the Gamified Cybersecurity learning experience in Unity
-            through collaboration with a team of developers.
+            Collaborated on revamping a gamified cybersecurity experience using
+            Unity.
           </li>
         </ul>
       ),
@@ -69,64 +65,75 @@ const Experience = () => {
     {
       company: "V Light",
       role: "Shop Manager",
-      duration: "2021 - 2022",
-      description:
-        "Managed day-to-day operations of the shop, supervised staff, handled inventory, and ensured smooth customer service.",
+      duration: "2021 – 2022",
+      description: (
+        <p className="text-gray-600 text-sm">
+          Managed daily shop operations, supervised staff, handled inventory,
+          and ensured smooth customer service.
+        </p>
+      ),
     },
   ];
 
   return (
-    <div className="bg-black min-h-screen w-full flex flex-col justify-center items-center px-8 py-20 text-white">
+    <section className="bg-white py-24 px-6 max-w-5xl mx-auto">
       <motion.h2
-        className="text-5xl font-bold mb-6 text-center"
+        className="text-4xl font-semibold text-gray-900 mb-6 text-center"
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
         Experience
       </motion.h2>
 
       {/* CV Buttons */}
-      <div className="flex gap-4 mb-12">
-        {/* View CV */}
+      <div className="flex justify-center gap-4 mb-16">
         <a
           href="/portfolio/Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-6 py-3 border-2 border-white text-white rounded-lg font-medium transition-all duration-200 hover:bg-white hover:text-black"
+          className="px-6 py-2.5 rounded-lg text-sm font-medium border border-gray-300 text-gray-800 hover:bg-gray-900 hover:text-white transition"
         >
           View CV
         </a>
 
-        {/* Download CV */}
         <a
           href="/portfolio/Resume.pdf"
           download
-          className="px-6 py-3 border-2 border-white text-white rounded-lg font-medium transition-all duration-200 hover:bg-white hover:text-black"
+          className="px-6 py-2.5 rounded-lg text-sm font-medium border border-gray-300 text-gray-800 hover:bg-gray-900 hover:text-white transition"
         >
           Download CV
         </a>
       </div>
 
-      <div className="flex flex-col gap-12 w-full max-w-4xl">
+      <div className="flex flex-col gap-10">
         {experiences.map((exp, index) => (
           <motion.div
             key={index}
-            className="border border-white/20 rounded-lg p-6 bg-gray-900"
+            className="rounded-xl bg-gray-100/60 border border-gray-300/50 shadow-sm hover:shadow-lg transition-all p-6"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
+            whileHover={{ y: -4 }}
           >
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-2xl font-bold">{exp.company}</h3>
-              <span className="text-sm opacity-70">{exp.duration}</span>
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-3 gap-1">
+              <h3 className="text-xl font-medium text-gray-900">
+                {exp.company}
+              </h3>
+              <span className="text-sm text-gray-500">{exp.duration}</span>
             </div>
-            <h4 className="text-lg font-medium mb-2">{exp.role}</h4>
-            <div>{exp.description}</div>
+
+            <h4 className="text-sm font-medium text-gray-700 mb-4">
+              {exp.role}
+            </h4>
+
+            {exp.description}
           </motion.div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
