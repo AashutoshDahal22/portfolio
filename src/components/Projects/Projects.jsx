@@ -45,6 +45,50 @@ const Projects = () => {
       link: "https://technouniversenp.vercel.app/",
       id: 7,
     },
+    {
+      title: "Fylm",
+      description:
+        "Movie recommendations with friends – share, discover, and build your watchlist together",
+      image: "/portfolio/techno.png",
+      link: "https://github.com/AashutoshDahal22/Fylm",
+      id: 8,
+    },
+    {
+      title: "Tution Tracker",
+      description: "Tution tracker made with Next.js and Prisma ORM",
+      image: "/portfolio/techno.png",
+      link: "https://github.com/AashutoshDahal22/tution-tracker",
+      id: 9,
+    },
+    {
+      title: "Kala-Kriti",
+      description:
+        "A platform powered with Augmented Reality for buying and selling arts and crafts",
+      image: "/portfolio/techno.png",
+      link: "https://kala-kriti-three.vercel.app/",
+      id: 10,
+    },
+    {
+      title: "Clip-stack",
+      description: "custom clipboard using python",
+      image: "/portfolio/techno.png",
+      link: "https://github.com/AashutoshDahal22/clipstack",
+      id: 11,
+    },
+    {
+      title: "Sudoku Solver",
+      description: "sudoku solver using python which solves 9x9 sudoku",
+      image: "/portfolio/techno.png",
+      link: "https://github.com/AashutoshDahal22/Sudoku-Solver",
+      id: 12,
+    },
+    {
+      title: "VLight-IT",
+      description: "e-commerce project for v-light IT shop",
+      image: "/portfolio/techno.png",
+      link: "https://github.com/AashutoshDahal22/V-Light-IT",
+      id: 13,
+    },
   ];
 
   return (
