@@ -1,140 +1,324 @@
-import React from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 
-const Experience = () => {
-  const experiences = [
-    {
-      company: "SMaRC (Skill Museum and Research Center)",
-      role: "Frontend & Spatial Computing Intern",
-      duration: "May 2024 – December 2025",
-      description: (
-        <ul className="list-disc list-inside space-y-2 text-gray-600 text-sm">
-          <li>
-            Developed an interactive riddle game for events at Kavya College,
-            improving engagement and logical thinking.
-          </li>
-          <li>
-            Organized large-scale events such as Herald PUBG and Islington
-            Mario, strengthening leadership and coordination skills.
-          </li>
-          <li>
-            Completed 3D web development training and took ownership of SMaRC’s
-            3D website development.
-          </li>
-          <li>
-            Showcased innovative projects at Futurama events hosted by multiple
-            colleges, increasing visibility and outreach.
-          </li>
-          <li>
-            Designed AR and 3D web experiences for brochures and promotional
-            materials at Islington College Kathmandu.
-          </li>
-          <li>
-            Built WebAR experiences using Google Model Viewer, Three.js,
-            A-Frame, and MindAR.
-          </li>
-          <li>
-            Presented Final Year Project and AR demos at BIC Experience events
-            and trained volunteers.
-          </li>
-          <li>
-            Led development of a gamified cybersecurity learning platform using
-            React Three Fiber as acting team lead.
-          </li>
-          <li>
-            Delivered game development classes for the Skill Enrichment Program.
-          </li>
-          <li>
-            Conducted web development workshops for the Global Professional
-            Pathway Course.
-          </li>
-          <li>
-            Researched AR optimization techniques to improve performance and
-            reduce latency.
-          </li>
-          <li>
-            Contributed to content development for robotics kits (Grades 4–9).
-          </li>
-          <li>
-            Collaborated on revamping a gamified cybersecurity experience using
-            Unity.
-          </li>
-        </ul>
-      ),
-    },
-    {
-      company: "V Light",
-      role: "Shop Manager",
-      duration: "2021 – 2022",
-      description: (
-        <p className="text-gray-600 text-sm">
-          Managed daily shop operations, supervised staff, handled inventory,
-          and ensured smooth customer service.
-        </p>
-      ),
-    },
-  ];
+const experiences = [
+  {
+    duration: "Jan 2026 - Date.now()",
+    role: "Backend Developer",
+    roleAccent: "Trainee",
+    company: "Aricalot Technologies",
+    description:
+      "Working on backend projects using Java and JakartaEE and developing APIs",
+    tags: ["JAVA", "BACKEND"],
+  },
+  {
+    duration: "May 2024 — Dec 2025",
+    role: "Frontend & Spatial Computing",
+    roleAccent: "Intern",
+    company: "SMaRC",
+    description:
+      "Built WebAR experiences using Three.js, A-Frame, and MindAR. Led development of a gamified cybersecurity platform with React Three Fiber. Conducted web development workshops and delivered game dev classes.",
+    tags: ["REACT", "THREE.JS", "WEBXR"],
+  },
+  {
+    duration: "2021 — 2022",
+    role: "Shop",
+    roleAccent: "Manager",
+    company: "V Light",
+    description:
+      "Managed daily operations, supervised staff, handled inventory, and ensured smooth customer service.",
+    tags: ["OPERATIONS", "MANAGEMENT"],
+  },
+];
+
+const rowVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] },
+  }),
+};
+
+export default function Experience() {
+  const [hovered, setHovered] = useState(null);
 
   return (
-    <section className="bg-white py-24 px-6 max-w-5xl mx-auto">
-      <motion.h2
-        className="text-4xl font-semibold text-gray-900 mb-6 text-center"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        Experience
-      </motion.h2>
-
-      {/* CV Buttons */}
-      <div className="flex justify-center gap-4 mb-16">
-        <a
-          href="/portfolio/Resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-6 py-2.5 rounded-lg text-sm font-medium border border-gray-300 text-gray-800 hover:bg-gray-900 hover:text-white transition"
+    <div className="py-24">
+      {/* HEADER */}
+      <div className="flex flex-wrap justify-between items-end gap-3 mb-4">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            fontSize: "clamp(36px, 5.5vw, 68px)",
+            fontWeight: 700,
+            letterSpacing: "-0.02em",
+            lineHeight: 1.05,
+            margin: 0,
+          }}
         >
-          View CV
-        </a>
+          <span style={{ color: "#1a1a1a" }}>Experi</span>
+          <span style={{ color: "#bbb", fontWeight: 300 }}>ence</span>
+        </motion.h2>
 
-        <a
-          href="/portfolio/Resume.pdf"
-          download
-          className="px-6 py-2.5 rounded-lg text-sm font-medium border border-gray-300 text-gray-800 hover:bg-gray-900 hover:text-white transition"
+        {/* CV BUTTONS */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.35, duration: 0.5 }}
+          className="flex gap-3 items-center pb-1"
         >
-          Download CV
-        </a>
+          <a
+            href="/portfolio/Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontSize: 11,
+              letterSpacing: "0.12em",
+              color: "#666",
+              border: "1px solid #d6d3cc",
+              borderRadius: 999,
+              padding: "7px 18px",
+              textDecoration: "none",
+              transition: "all 0.2s",
+              fontWeight: 500,
+              whiteSpace: "nowrap",
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.background = "#1a1a1a";
+              e.target.style.color = "#fff";
+              e.target.style.borderColor = "#1a1a1a";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.background = "transparent";
+              e.target.style.color = "#666";
+              e.target.style.borderColor = "#d6d3cc";
+            }}
+          >
+            VIEW CV
+          </a>
+          <a
+            href="/portfolio/Resume.pdf"
+            download
+            style={{
+              fontSize: 11,
+              letterSpacing: "0.12em",
+              color: "#c97d4e",
+              border: "1px solid #c97d4e",
+              borderRadius: 999,
+              padding: "7px 18px",
+              textDecoration: "none",
+              transition: "all 0.2s",
+              fontWeight: 500,
+              whiteSpace: "nowrap",
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.background = "#c97d4e";
+              e.target.style.color = "#fff";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.background = "transparent";
+              e.target.style.color = "#c97d4e";
+            }}
+          >
+            DOWNLOAD CV
+          </a>
+        </motion.div>
       </div>
 
-      <div className="flex flex-col gap-10">
+      {/* TOP DIVIDER */}
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        style={{
+          height: 1,
+          background: "#d6d3cc",
+          transformOrigin: "left",
+          marginBottom: 0,
+        }}
+      />
+
+      {/* EXPERIENCE LIST */}
+      <div className="flex flex-col">
         {experiences.map((exp, index) => (
           <motion.div
             key={index}
-            className="rounded-xl bg-gray-100/60 border border-gray-300/50 shadow-sm hover:shadow-lg transition-all p-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
-            whileHover={{ y: -4 }}
+            custom={index}
+            variants={rowVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            onMouseEnter={() => setHovered(index)}
+            onMouseLeave={() => setHovered(null)}
+            onTouchStart={() => setHovered(index)}
+            onTouchEnd={() => setHovered(null)}
+            className="border-b border-gray-300/60 py-8"
           >
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-3 gap-1">
-              <h3 className="text-xl font-medium text-gray-900">
-                {exp.company}
-              </h3>
-              <span className="text-sm text-gray-500">{exp.duration}</span>
+            {/* MOBILE: stacked layout */}
+            <div className="block sm:hidden">
+              {/* Duration */}
+              <span
+                style={{
+                  fontSize: 10,
+                  letterSpacing: "0.08em",
+                  color: "#aaa",
+                  fontFamily: "monospace",
+                  display: "block",
+                  marginBottom: 8,
+                }}
+              >
+                {exp.duration}
+              </span>
+
+              {/* Role + Company */}
+              <div style={{ marginBottom: 10 }}>
+                <h3
+                  style={{
+                    fontSize: "clamp(20px, 5vw, 26px)",
+                    fontWeight: 700,
+                    color: "#1a1a1a",
+                    margin: 0,
+                    lineHeight: 1.1,
+                    letterSpacing: "-0.02em",
+                  }}
+                >
+                  {exp.role}{" "}
+                  <span style={{ color: "#c97d4e" }}>{exp.roleAccent}</span>
+                </h3>
+                <p
+                  style={{
+                    fontSize: 13,
+                    fontWeight: 400,
+                    color: hovered === index ? "#c97d4e" : "#aaa",
+                    margin: "4px 0 0",
+                    transition: "color 0.25s",
+                  }}
+                >
+                  {exp.company}
+                </p>
+              </div>
+
+              {/* Description */}
+              <p
+                style={{
+                  fontSize: 13,
+                  color: "#666",
+                  lineHeight: 1.7,
+                  margin: "0 0 12px",
+                }}
+              >
+                {exp.description}
+              </p>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-3">
+                {exp.tags.map((tag) => (
+                  <motion.span
+                    key={tag}
+                    animate={{ color: hovered === index ? "#c97d4e" : "#bbb" }}
+                    transition={{ duration: 0.25 }}
+                    style={{
+                      fontSize: 10,
+                      letterSpacing: "0.15em",
+                      fontWeight: 500,
+                    }}
+                  >
+                    {tag}
+                  </motion.span>
+                ))}
+              </div>
             </div>
 
-            <h4 className="text-sm font-medium text-gray-700 mb-4">
-              {exp.role}
-            </h4>
+            {/* DESKTOP: grid layout */}
+            <div
+              className="hidden sm:grid items-start"
+              style={{
+                gridTemplateColumns: "160px 1fr 1fr auto",
+                gap: "2rem",
+              }}
+            >
+              {/* DURATION */}
+              <span
+                style={{
+                  fontSize: 11,
+                  letterSpacing: "0.08em",
+                  color: "#aaa",
+                  fontFamily: "monospace",
+                  paddingTop: 6,
+                }}
+              >
+                {exp.duration}
+              </span>
 
-            {exp.description}
+              {/* ROLE + COMPANY */}
+              <div>
+                <h3
+                  style={{
+                    fontSize: "clamp(18px, 2.2vw, 30px)",
+                    fontWeight: 700,
+                    color: "#1a1a1a",
+                    margin: 0,
+                    lineHeight: 1.1,
+                    letterSpacing: "-0.02em",
+                  }}
+                >
+                  {exp.role}{" "}
+                  <span style={{ color: "#c97d4e" }}>{exp.roleAccent}</span>
+                </h3>
+                <p
+                  style={{
+                    fontSize: 14,
+                    fontWeight: 400,
+                    color: hovered === index ? "#c97d4e" : "#aaa",
+                    margin: "4px 0 0",
+                    transition: "color 0.25s",
+                  }}
+                >
+                  {exp.company}
+                </p>
+              </div>
+
+              {/* DESCRIPTION */}
+              <p
+                style={{
+                  fontSize: 13,
+                  color: "#666",
+                  lineHeight: 1.7,
+                  margin: 0,
+                  maxWidth: 360,
+                  paddingTop: 4,
+                }}
+              >
+                {exp.description}
+              </p>
+
+              {/* TAGS */}
+              <div
+                className="flex flex-col items-end gap-1"
+                style={{ paddingTop: 4 }}
+              >
+                {exp.tags.map((tag) => (
+                  <motion.span
+                    key={tag}
+                    animate={{ color: hovered === index ? "#c97d4e" : "#bbb" }}
+                    transition={{ duration: 0.25 }}
+                    style={{
+                      fontSize: 10,
+                      letterSpacing: "0.15em",
+                      fontWeight: 500,
+                    }}
+                  >
+                    {tag}
+                  </motion.span>
+                ))}
+              </div>
+            </div>
           </motion.div>
         ))}
       </div>
-    </section>
+    </div>
   );
-};
-
-export default Experience;
+}

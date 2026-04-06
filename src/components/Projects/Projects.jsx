@@ -1,150 +1,380 @@
-import React from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 
-const Projects = () => {
-  const projectData = [
-    {
-      title: "Ev Repair",
-      description: "EV repair website built for advertisement",
-      image: "/portfolio/ev.png",
-      link: "https://ev-repair.vercel.app/",
-      id: 1,
-    },
-    {
-      title: "Bhasalaya",
-      description: "Web application for learning Nepali, Samajik and Sanskrit",
-      image: "/portfolio/bhasa.png",
-      link: "",
-      id: 2,
-    },
-    {
-      title: "Medisys",
-      description: "Health tracking web application",
-      image: "/portfolio/medisys.png",
-      link: "https://github.com/AashutoshDL/Clinic-Management-System",
-      id: 3,
-    },
-    {
-      title: "VROOM",
-      description: "Car rental web application",
-      image: "/portfolio/vroom.png",
-      link: "https://github.com/AashutoshDL/VROOM.git",
-      id: 5,
-    },
-    {
-      title: "Sticker Mash",
-      description: "Simple React Native sticker editing app",
-      image: "/portfolio/image2.jpg",
-      link: "https://github.com/AashutoshDL/StickerMash",
-      id: 6,
-    },
-    {
-      title: "TechnoUniverse",
-      description: "Company website built with Next.js",
-      image: "/portfolio/techno.png",
-      link: "https://technouniversenp.vercel.app/",
-      id: 7,
-    },
-    {
-      title: "Fylm",
-      description:
-        "Movie recommendations with friends – share, discover, and build your watchlist together",
-      image: "/portfolio/techno.png",
-      link: "https://github.com/AashutoshDahal22/Fylm",
-      id: 8,
-    },
-    {
-      title: "Tution Tracker",
-      description: "Tuition tracker made with Next.js and Prisma ORM",
-      image: "/portfolio/techno.png",
-      link: "https://github.com/AashutoshDahal22/tution-tracker",
-      id: 9,
-    },
-    {
-      title: "Kala-Kriti",
-      description:
-        "A platform powered with Augmented Reality for buying and selling arts and crafts",
-      image: "/portfolio/techno.png",
-      link: "https://kala-kriti-three.vercel.app/",
-      id: 10,
-    },
-    {
-      title: "Clip-stack",
-      description: "Custom clipboard using Python",
-      image: "/portfolio/techno.png",
-      link: "https://github.com/AashutoshDahal22/clipstack",
-      id: 11,
-    },
-    {
-      title: "Sudoku Solver",
-      description: "Sudoku solver using Python (9×9)",
-      image: "/portfolio/techno.png",
-      link: "https://github.com/AashutoshDahal22/Sudoku-Solver",
-      id: 12,
-    },
-    {
-      title: "VLight-IT",
-      description: "E-commerce project for V-Light IT shop",
-      image: "/portfolio/techno.png",
-      link: "https://github.com/AashutoshDahal22/V-Light-IT",
-      id: 13,
-    },
-  ];
+const projects = [
+  {
+    id: "01",
+    title: "Ev Repair",
+    subtitle: "Web Platform",
+    description:
+      "EV repair website built for advertisement and service bookings with real-time availability.",
+    tags: ["NEXT.JS", "TAILWIND", "STRIPE"],
+    year: "2024",
+    url: "https://ev-repair.vercel.app",
+  },
+  {
+    id: "02",
+    title: "Bhasalaya",
+    subtitle: "Education App",
+    description:
+      "Web application for learning Nepali, Samajik and Sanskrit with interactive lessons.",
+    tags: ["REACT", "FIREBASE", "FRAMER MOTION"],
+    year: "2024",
+    url: "https://bhasalaya.vercel.app",
+  },
+  {
+    id: "03",
+    title: "Medisys",
+    subtitle: "Health Platform",
+    description:
+      "Health tracking web application with dashboards, reminders, and doctor integrations.",
+    tags: ["TYPESCRIPT", "D3.JS", "NODE.JS"],
+    year: "2024",
+    url: "https://medisys.vercel.app",
+  },
+  {
+    id: "04",
+    title: "VROOM",
+    subtitle: "Commerce",
+    description:
+      "Car rental web application with gesture-driven UI and cinematic vehicle reveals.",
+    tags: ["NEXT.JS", "FRAMER MOTION", "PRISMA"],
+    year: "2023",
+    url: "https://vroom-rental.vercel.app",
+  },
+  {
+    id: "05",
+    title: "Sticker Mash",
+    subtitle: "Mobile App",
+    description:
+      "React Native sticker editing app with layering, filters, and social sharing.",
+    tags: ["REACT NATIVE", "EXPO", "CLOUDINARY"],
+    year: "2023",
+    url: "https://expo.dev/sticker-mash",
+  },
+];
+
+const rowVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.09, ease: [0.22, 1, 0.36, 1] },
+  }),
+};
+
+export default function Projects() {
+  const [hovered, setHovered] = useState(null);
 
   return (
-    <section className="bg-white py-24 px-6 max-w-7xl mx-auto">
-      <motion.h2
-        className="text-4xl font-semibold text-gray-900 mb-16"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        Projects
-      </motion.h2>
+    <div className="py-24">
+      {/* HEADER */}
+      <div className="flex justify-between items-end mb-4">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            fontSize: "clamp(36px, 5.5vw, 68px)",
+            fontWeight: 700,
+            letterSpacing: "-0.02em",
+            lineHeight: 1.05,
+            margin: 0,
+          }}
+        >
+          <span style={{ color: "#1a1a1a" }}>Selected</span>{" "}
+          <span style={{ color: "#bbb", fontWeight: 300 }}>work</span>
+        </motion.h2>
 
-      <div className="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {projectData.map((project, index) => (
+        <motion.span
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.35, duration: 0.5 }}
+          style={{
+            fontSize: 11,
+            letterSpacing: "0.3em",
+            color: "#aaa",
+            fontFamily: "monospace",
+            paddingBottom: 6,
+          }}
+        >
+          {String(projects.length).padStart(2, "0")} PROJECTS
+        </motion.span>
+      </div>
+
+      {/* DIVIDER */}
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        style={{
+          height: 1,
+          background: "#d6d3cc",
+          transformOrigin: "left",
+          marginBottom: 0,
+        }}
+      />
+
+      {/* PROJECT LIST */}
+      <div className="flex flex-col">
+        {projects.map((project, index) => (
           <motion.div
             key={project.id}
-            className="group rounded-xl bg-gray-200/60 border border-gray-300/50 shadow-sm hover:shadow-lg transition-all"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
-            whileHover={{ y: -4 }}
+            custom={index}
+            variants={rowVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            onMouseEnter={() => setHovered(index)}
+            onMouseLeave={() => setHovered(null)}
+            onTouchStart={() => setHovered(index)}
+            onTouchEnd={() => setHovered(null)}
+            className="border-b border-gray-300/60 py-7"
           >
-            <div className="h-56 w-full overflow-hidden rounded-t-xl">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-            </div>
+            {/* MOBILE: stacked layout */}
+            <div className="block sm:hidden">
+              {/* Top row: number + year + arrow */}
+              <div className="flex items-center justify-between mb-2">
+                <motion.span
+                  animate={{
+                    color:
+                      hovered === index
+                        ? "#c97d4e"
+                        : index === 0
+                          ? "#e8c9ae"
+                          : "#e0ddd8",
+                  }}
+                  transition={{ duration: 0.25 }}
+                  style={{
+                    fontSize: 28,
+                    fontWeight: 700,
+                    lineHeight: 1,
+                    letterSpacing: "-0.02em",
+                    userSelect: "none",
+                  }}
+                >
+                  {project.id}
+                </motion.span>
 
-            <div className="p-6 flex flex-col">
-              <h3 className="text-xl font-medium text-gray-800 mb-2">
-                {project.title}
-              </h3>
+                <div className="flex items-center gap-3">
+                  <span
+                    style={{
+                      fontSize: 12,
+                      color: "#aaa",
+                      letterSpacing: "0.05em",
+                      fontFamily: "monospace",
+                    }}
+                  >
+                    {project.year}
+                  </span>
+                  <motion.a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    animate={{
+                      color: hovered === index ? "#c97d4e" : "#ccc",
+                    }}
+                    transition={{ duration: 0.2 }}
+                    style={{
+                      fontSize: 18,
+                      display: "inline-block",
+                      textDecoration: "none",
+                      cursor: "pointer",
+                    }}
+                    aria-label={`Open ${project.title}`}
+                  >
+                    →
+                  </motion.a>
+                </div>
+              </div>
 
-              <p className="text-gray-600 text-sm mb-6 flex-grow">
+              {/* Title + subtitle */}
+              <div style={{ marginBottom: 8 }}>
+                <h3
+                  style={{
+                    fontSize: "clamp(22px, 5.5vw, 30px)",
+                    fontWeight: 700,
+                    color: "#1a1a1a",
+                    margin: 0,
+                    lineHeight: 1.1,
+                    letterSpacing: "-0.02em",
+                  }}
+                >
+                  {project.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: "clamp(14px, 3.5vw, 18px)",
+                    fontWeight: 300,
+                    color: "#bbb",
+                    margin: 0,
+                    lineHeight: 1.2,
+                  }}
+                >
+                  {project.subtitle}
+                </p>
+              </div>
+
+              {/* Description */}
+              <p
+                style={{
+                  fontSize: 13,
+                  color: "#666",
+                  margin: "0 0 10px",
+                  lineHeight: 1.65,
+                }}
+              >
                 {project.description}
               </p>
 
-              <a
-                href={project.link || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-medium text-gray-700 underline underline-offset-4 hover:text-gray-900 transition"
+              {/* Tags */}
+              <div className="flex gap-3 flex-wrap">
+                {project.tags.map((tag) => (
+                  <motion.span
+                    key={tag}
+                    animate={{ color: hovered === index ? "#c97d4e" : "#aaa" }}
+                    transition={{ duration: 0.25 }}
+                    style={{
+                      fontSize: 10,
+                      letterSpacing: "0.15em",
+                      fontWeight: 500,
+                    }}
+                  >
+                    {tag}
+                  </motion.span>
+                ))}
+              </div>
+            </div>
+
+            {/* DESKTOP: grid layout */}
+            <div
+              className="hidden sm:grid items-center"
+              style={{
+                gridTemplateColumns: "72px 1fr 1fr auto",
+                gap: "2rem",
+              }}
+            >
+              {/* NUMBER */}
+              <motion.span
+                animate={{
+                  color:
+                    hovered === index
+                      ? "#c97d4e"
+                      : index === 0
+                        ? "#e8c9ae"
+                        : "#e0ddd8",
+                }}
+                transition={{ duration: 0.25 }}
+                style={{
+                  fontSize: "clamp(34px, 4vw, 52px)",
+                  fontWeight: 700,
+                  lineHeight: 1,
+                  letterSpacing: "-0.02em",
+                  userSelect: "none",
+                }}
               >
-                View project →
-              </a>
+                {project.id}
+              </motion.span>
+
+              {/* TITLE + SUBTITLE */}
+              <div>
+                <h3
+                  style={{
+                    fontSize: "clamp(20px, 2.6vw, 36px)",
+                    fontWeight: 700,
+                    color: "#1a1a1a",
+                    margin: 0,
+                    lineHeight: 1.1,
+                    letterSpacing: "-0.02em",
+                  }}
+                >
+                  {project.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: "clamp(16px, 1.8vw, 26px)",
+                    fontWeight: 300,
+                    color: "#bbb",
+                    margin: 0,
+                    lineHeight: 1.2,
+                  }}
+                >
+                  {project.subtitle}
+                </p>
+              </div>
+
+              {/* DESCRIPTION + TAGS */}
+              <div>
+                <p
+                  style={{
+                    fontSize: 14,
+                    color: "#666",
+                    margin: "0 0 10px",
+                    lineHeight: 1.65,
+                    maxWidth: 340,
+                  }}
+                >
+                  {project.description}
+                </p>
+                <div className="flex gap-3 flex-wrap">
+                  {project.tags.map((tag) => (
+                    <motion.span
+                      key={tag}
+                      animate={{
+                        color: hovered === index ? "#c97d4e" : "#aaa",
+                      }}
+                      transition={{ duration: 0.25 }}
+                      style={{
+                        fontSize: 10,
+                        letterSpacing: "0.15em",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {tag}
+                    </motion.span>
+                  ))}
+                </div>
+              </div>
+
+              {/* YEAR + ARROW */}
+              <div
+                className="flex flex-col items-end gap-2"
+                style={{ minWidth: 52 }}
+              >
+                <span
+                  style={{
+                    fontSize: 12,
+                    color: "#aaa",
+                    letterSpacing: "0.05em",
+                    fontFamily: "monospace",
+                  }}
+                >
+                  {project.year}
+                </span>
+                <motion.a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  animate={{
+                    x: hovered === index ? 5 : 0,
+                    color: hovered === index ? "#c97d4e" : "#ccc",
+                  }}
+                  transition={{ duration: 0.2 }}
+                  style={{
+                    fontSize: 18,
+                    display: "inline-block",
+                    textDecoration: "none",
+                    cursor: "pointer",
+                  }}
+                  aria-label={`Open ${project.title}`}
+                >
+                  →
+                </motion.a>
+              </div>
             </div>
           </motion.div>
         ))}
       </div>
-    </section>
+    </div>
   );
-};
-
-export default Projects;
+}
