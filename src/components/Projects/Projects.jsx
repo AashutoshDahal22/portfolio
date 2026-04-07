@@ -14,13 +14,13 @@ const projects = [
   },
   {
     id: "02",
-    title: "Bhasalaya",
-    subtitle: "Education App",
+    title: "Technouniverse",
+    subtitle: "Website",
     description:
-      "Web application for learning Nepali, Samajik and Sanskrit with interactive lessons.",
-    tags: ["REACT", "FIREBASE", "FRAMER MOTION"],
-    year: "2024",
-    url: "https://bhasalaya.vercel.app",
+      "Company Website for Technouniverse, which has solutions for all the technical problems.",
+    tags: ["NEXT JS", "FRAMER MOTION", "VERCEL"],
+    year: "2025",
+    url: "https://technouniversenp.vercel.app/",
   },
   {
     id: "03",
@@ -34,23 +34,31 @@ const projects = [
   },
   {
     id: "04",
-    title: "VROOM",
+    title: "Kala-Kriti",
     subtitle: "Commerce",
-    description:
-      "Car rental web application with gesture-driven UI and cinematic vehicle reveals.",
-    tags: ["NEXT.JS", "FRAMER MOTION", "PRISMA"],
-    year: "2023",
-    url: "https://vroom-rental.vercel.app",
+    description: "E-commerce platform for handcraft items and art pieces.",
+    tags: ["NEXT.JS", "FRAMER MOTION", "DJANGO"],
+    year: "2025",
+    url: "https://kala-kriti-three.vercel.app/",
   },
   {
     id: "05",
-    title: "Sticker Mash",
-    subtitle: "Mobile App",
-    description:
-      "React Native sticker editing app with layering, filters, and social sharing.",
-    tags: ["REACT NATIVE", "EXPO", "CLOUDINARY"],
+    title: "BMKS",
+    subtitle: "Website",
+    description: "Informative Website for a religious organization",
+    tags: ["REACT JS"],
     year: "2023",
-    url: "https://expo.dev/sticker-mash",
+    url: "https://bmks-seven.vercel.app/",
+  },
+  {
+    id: "06",
+    title: "Pentagon Legal Associates",
+    subtitle: "Website",
+    description:
+      "Informative and Blog website for Pentagon Legal Associates Law Firm",
+    tags: ["NEXT JS", "VERCEL"],
+    year: "2026",
+    url: "https://pentagonlegalassociates.vercel.app/",
   },
 ];
 
@@ -307,7 +315,7 @@ export default function Projects() {
               <div>
                 <p
                   style={{
-                    fontSize: 14,
+                    fontSize: 16,
                     color: "#666",
                     margin: "0 0 10px",
                     lineHeight: 1.65,
@@ -325,7 +333,7 @@ export default function Projects() {
                       }}
                       transition={{ duration: 0.25 }}
                       style={{
-                        fontSize: 10,
+                        fontSize: 14,
                         letterSpacing: "0.15em",
                         fontWeight: 500,
                       }}

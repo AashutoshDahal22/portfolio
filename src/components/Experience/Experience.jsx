@@ -243,9 +243,9 @@ export default function Experience() {
               {/* DURATION */}
               <span
                 style={{
-                  fontSize: 11,
+                  fontSize: 18,
                   letterSpacing: "0.08em",
-                  color: "#aaa",
+                  color: "#030000",
                   fontFamily: "monospace",
                   paddingTop: 6,
                 }}
@@ -270,9 +270,9 @@ export default function Experience() {
                 </h3>
                 <p
                   style={{
-                    fontSize: 14,
+                    fontSize: 18,
                     fontWeight: 400,
-                    color: hovered === index ? "#c97d4e" : "#aaa",
+                    color: hovered === index ? "#f06108" : "#aaa",
                     margin: "4px 0 0",
                     transition: "color 0.25s",
                   }}
@@ -284,8 +284,8 @@ export default function Experience() {
               {/* DESCRIPTION */}
               <p
                 style={{
-                  fontSize: 13,
-                  color: "#666",
+                  fontSize: 18,
+                  color: "#303030",
                   lineHeight: 1.7,
                   margin: 0,
                   maxWidth: 360,
@@ -306,7 +306,7 @@ export default function Experience() {
                     animate={{ color: hovered === index ? "#c97d4e" : "#bbb" }}
                     transition={{ duration: 0.25 }}
                     style={{
-                      fontSize: 10,
+                      fontSize: 16,
                       letterSpacing: "0.15em",
                       fontWeight: 500,
                     }}

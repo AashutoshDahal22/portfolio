@@ -43,7 +43,7 @@ export default function Contact() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           style={{
-            fontSize: 11,
+            fontSize: 24,
             letterSpacing: "0.18em",
             color: "#c97d4e",
             fontWeight: 500,
