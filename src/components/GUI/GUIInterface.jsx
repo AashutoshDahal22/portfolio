@@ -33,7 +33,7 @@ export default function GUIInterface() {
       {/* Sections */}
       <main className="snap-y snap-mandatory h-screen overflow-y-scroll scroll-smooth">
         <section className="min-h-screen snap-start px-8 md:px-16">
-          <Hero imageSrc="/portfolio/self.jpg" />
+          <Hero imageSrc="/portfolio/self.png" />
         </section>
 
         <section

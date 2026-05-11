@@ -71,7 +71,7 @@ export default function Experience() {
           className="flex gap-3 items-center pb-1"
         >
           <a
-            href="/portfolio/Resume.pdf"
+            href="/portfolio/Resume-2026.pdf"
             target="_blank"
             rel="noopener noreferrer"
             style={{
